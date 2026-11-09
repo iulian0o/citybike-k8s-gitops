@@ -1,4 +1,4 @@
-bootstrap/application.yaml
+bootstrap/application.tamplate.yaml
 .env
 .env.*
 node_modules/
