@@ -24,6 +24,16 @@ spec:
         - name: citybike
           image: node:22-alpine
           imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
           command: ["node", "/opt/citybike/server.js"]
           ports:
             - name: http
